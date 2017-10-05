@@ -26,6 +26,8 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.calcite.avatica.util.ArrayImpl;
+
 /**
  * JavaToSqlTypeConversionRules defines mappings from common Java types to
  * corresponding SQL types.
@@ -67,7 +69,7 @@ public class JavaToSqlTypeConversionRules {
           .put(Timestamp.class, SqlTypeName.TIMESTAMP)
           .put(Time.class, SqlTypeName.TIME)
           .put(BigDecimal.class, SqlTypeName.DECIMAL)
-
+          .put(ArrayImpl.class,SqlTypeName.ARRAY)
           .put(ResultSet.class, SqlTypeName.CURSOR)
           .put(ColumnList.class, SqlTypeName.COLUMN_LIST)
           .build();

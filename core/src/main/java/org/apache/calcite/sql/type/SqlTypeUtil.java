@@ -719,9 +719,20 @@ public abstract class SqlTypeUtil {
       return false;
     }
 
+    if(fromType.getSqlTypeName()==SqlTypeName.ARRAY)
+    {
+  	  if(!(toType.getSqlTypeName()==SqlTypeName.ARRAY))
+  		  return canAssignFrom(toType.getComponentType(),fromType.getComponentType());
+  	  return false;
+    }
+    
+    
+    
     return toType.getFamily() == fromType.getFamily();
   }
 
+  
+  
   /**
    * Determines whether two types both have different character sets. If one
    * or the other type has no character set (e.g. in cast from INT to

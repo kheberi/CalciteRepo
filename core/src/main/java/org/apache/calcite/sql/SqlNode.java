@@ -64,6 +64,7 @@ public abstract class SqlNode implements Cloneable {
 
   public Object clone() {
     return clone(getParserPosition());
+   
   }
 
   /**
